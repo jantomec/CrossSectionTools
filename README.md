@@ -9,4 +9,4 @@ Currently support:
  - deviatoric moment of inertia
  - torsion constant (torsional rigidity)
 
-
+![Screenshot](screenshot.png)
