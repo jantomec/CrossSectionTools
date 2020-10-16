@@ -1,6 +1,6 @@
 # CrossSectionTools
 
-Compute cross section properties for an arbitrary shape in Wolfram Mathematica
+Compute cross section properties for an arbitrary shape in Wolfram Mathematica.
 
 Currently supports:
 
