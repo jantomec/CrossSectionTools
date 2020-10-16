@@ -1,0 +1,347 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13268,        339]
+NotebookOptionsPosition[     12867,        321]
+NotebookOutlinePosition[     13214,        336]
+CellTagsIndexPosition[     13171,        333]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "torsionConstant", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"torsionConstant", "[", 
+   RowBox[{"region", ":", 
+    RowBox[{"_", "?", "RegionQ"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Psi]", ",", "u", ",", "y", ",", "z"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\[Psi]", "=", 
+      RowBox[{
+       RowBox[{"NDSolveValue", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Laplacian", "[", 
+             RowBox[{
+              RowBox[{"u", "[", 
+               RowBox[{"y", ",", "z"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"y", ",", "z"}], "}"}]}], "]"}], "\[Equal]", 
+            RowBox[{"-", "2"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"DirichletCondition", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"u", "[", 
+               RowBox[{"y", ",", "z"}], "]"}], "\[Equal]", "0"}], ",", 
+             "True"}], "]"}]}], "\[IndentingNewLine]", "}"}], ",", "u", ",", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"y", ",", "z"}], "}"}], "\[Element]", 
+          "\[CapitalOmega]"}]}], "]"}], "//", "Quiet"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"2", 
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{"\[Psi]", "[", 
+         RowBox[{"y", ",", "z"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "\[CapitalOmega]"}]}],
+        "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8118253585194626`*^9, 3.8118253586650653`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "crossSection", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"crossSection", "[", 
+   RowBox[{
+    RowBox[{"region", ":", 
+     RowBox[{"_", "?", "RegionQ"}]}], ",", 
+    RowBox[{"units_:", "\"\<mm\>\""}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "data", ",", "yt", ",", "zt", ",", "y", ",", "z", ",", "colors"}], "}"}],
+     ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"data", "=", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Measure\>\"", ",", "\"\<Value\>\"", ",", "\"\<Units\>\""}], 
+        "}"}], "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", "Area", " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A\>\"", ",", 
+         RowBox[{"Area", "[", "region", "]"}], ",", 
+         SuperscriptBox["units", "2"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Mass", " ", "center"}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"yt", ",", "zt"}], "}"}], "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NIntegrate", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"y", ",", "z"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "region"}]}], "]"}],
+         "/", 
+        RowBox[{"Area", "[", "region", "]"}]}], "//", "Quiet"}]}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Moment", " ", "of", " ", "inertia"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(I\), \(yy\)]\)\>\"", ",", 
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"y", "-", "yt"}], ")"}], "2"], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "region"}]}], 
+          "]"}], ",", 
+         SuperscriptBox["units", "4"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(I\), \(zz\)]\)\>\"", ",", 
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"z", "-", "zt"}], ")"}], "2"], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "region"}]}], 
+          "]"}], ",", 
+         SuperscriptBox["units", "4"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(I\), \(yz\)]\)\>\"", ",", 
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"y", "-", "yt"}], ")"}], 
+            RowBox[{"(", 
+             RowBox[{"z", "-", "zt"}], ")"}]}], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "region"}]}], 
+          "]"}], ",", 
+         SuperscriptBox["units", "4"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(I\), \(xx\)]\)\>\"", ",", 
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"y", "-", "yt"}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"z", "-", "zt"}], ")"}], "2"]}], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"y", ",", "z"}], "}"}], "\[Element]", "region"}]}], 
+          "]"}], ",", 
+         SuperscriptBox["units", "4"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(J\), \(t\)]\)\>\"", ",", 
+         RowBox[{"torsionConstant", "[", "region", "]"}], ",", 
+         SuperscriptBox["units", "4"]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", "Visualize", " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"colors", "=", 
+      RowBox[{"ColorData", "[", 
+       RowBox[{"97", ",", "\"\<ColorList\>\""}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Grid", "[", 
+      RowBox[{"{", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Grid", "[", 
+          RowBox[{"data", ",", 
+           RowBox[{"Alignment", "\[Rule]", "Left"}], ",", 
+           RowBox[{"Spacings", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"2", ",", "1"}], "}"}]}], ",", 
+           RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+           RowBox[{"ItemStyle", "\[Rule]", "\"\<Text\>\""}], ",", 
+           RowBox[{"Background", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"RGBColor", "[", "\"\<#bfbfbf\>\"", "]"}], ",", 
+                "None"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"RGBColor", "[", "\"\<#f2f2f2\>\"", "]"}], ",", 
+                "None"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"{", 
+              RowBox[{"Thick", ",", 
+               RowBox[{"Opacity", "[", "0.7", "]"}], ",", 
+               RowBox[{"colors", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "}"}], "]"}], ",", 
+            RowBox[{"FaceForm", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Opacity", "[", "0.25", "]"}], ",", 
+               RowBox[{"colors", "[", 
+                RowBox[{"[", "7", "]"}], "]"}]}], "}"}], "]"}], ",", 
+            "region"}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], "}"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.811582416760996*^9, 3.811582448543929*^9}, {
+   3.8115824851599073`*^9, 3.8115824889142284`*^9}, {3.811582542676491*^9, 
+   3.811582661643964*^9}, {3.811582692645503*^9, 3.8115827869003506`*^9}, {
+   3.811582834003541*^9, 3.8115830094088507`*^9}, {3.811583041439966*^9, 
+   3.811583041529725*^9}, {3.811583348525584*^9, 3.811583355866046*^9}, {
+   3.8115833983738747`*^9, 3.811583420459711*^9}, {3.811583599864687*^9, 
+   3.81158360307998*^9}, {3.811583675685334*^9, 3.8115836809972196`*^9}, {
+   3.811584059392743*^9, 3.8115840738591385`*^9}, {3.811584128966668*^9, 
+   3.81158412913422*^9}, {3.8115842266411724`*^9, 3.811584253541669*^9}, {
+   3.8115844155552907`*^9, 3.8115844180502567`*^9}, {3.811648832722709*^9, 
+   3.811648845571848*^9}, {3.811824552652957*^9, 3.8118245773804145`*^9}, {
+   3.8118246338943863`*^9, 3.811824677490097*^9}, {3.8118247136397076`*^9, 
+   3.8118247843221426`*^9}, {3.811824842610757*^9, 3.811825146697157*^9}, 
+   3.811825205470652*^9, {3.811825263337698*^9, 3.8118252699837875`*^9}, {
+   3.811825308848154*^9, 3.8118253869328337`*^9}, {3.811825430233592*^9, 
+   3.8118254319417753`*^9}, {3.811825473193976*^9, 3.811825557112782*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[CapitalOmega]", "=", 
+   RowBox[{"Disk", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"crossSection", "[", "\[CapitalOmega]", "]"}]}], "Input",
+ CellChangeTimes->{{3.8118240463065166`*^9, 3.81182406951991*^9}, {
+   3.8118241980619726`*^9, 3.8118241988572874`*^9}, {3.811824325510501*^9, 
+   3.8118243257139854`*^9}, {3.811824681269765*^9, 3.8118246968823833`*^9}, 
+   3.8118249724682903`*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[GridBox[{
+        {"\<\"Measure\"\>", "\<\"Value\"\>", "\<\"Units\"\>"},
+        {"\<\"A\"\>", "\[Pi]", 
+         SuperscriptBox["\<\"mm\"\>", "2"]},
+        {"\<\"\\!\\(\\*SubscriptBox[\\(I\\), \\(yy\\)]\\)\"\>", 
+         "0.7853981633974483`", 
+         SuperscriptBox["\<\"mm\"\>", "4"]},
+        {"\<\"\\!\\(\\*SubscriptBox[\\(I\\), \\(zz\\)]\\)\"\>", 
+         "0.7853981602019963`", 
+         SuperscriptBox["\<\"mm\"\>", "4"]},
+        {"\<\"\\!\\(\\*SubscriptBox[\\(I\\), \\(yz\\)]\\)\"\>", "0.`", 
+         SuperscriptBox["\<\"mm\"\>", "4"]},
+        {"\<\"\\!\\(\\*SubscriptBox[\\(I\\), \\(xx\\)]\\)\"\>", 
+         "1.5707963267948966`", 
+         SuperscriptBox["\<\"mm\"\>", "4"]},
+        {"\<\"\\!\\(\\*SubscriptBox[\\(J\\), \\(t\\)]\\)\"\>", 
+         "1.5708066464465475`", 
+         SuperscriptBox["\<\"mm\"\>", "4"]}
+       },
+       AutoDelete->False,
+       GridBoxAlignment->{"Columns" -> {{Left}}},
+       GridBoxBackground->{"Columns" -> {
+           RGBColor[
+           0.7490196078431373, 0.7490196078431373, 0.7490196078431373], None},
+          "Rows" -> {
+           RGBColor[
+           0.9490196078431372, 0.9490196078431372, 0.9490196078431372], None}},
+       GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+       GridBoxItemStyle->{"Columns" -> {{"Text"}}, "Rows" -> {{"Text"}}},
+       GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+      "Grid"], 
+     GraphicsBox[
+      {EdgeForm[{RGBColor[0.368417, 0.506779, 0.709798], Opacity[0.7], 
+       Thickness[Large]}], FaceForm[{RGBColor[0.363898, 0.618501, 0.782349], 
+       Opacity[0.25]}], DiskBox[{0, 1}]}]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.8118246818272104`*^9, 3.8118247026764936`*^9}, {
+   3.811824931958314*^9, 3.811824973955987*^9}, {3.811825009163474*^9, 
+   3.811825075358327*^9}, {3.8118251330342617`*^9, 3.811825147771044*^9}, 
+   3.81182520694635*^9, {3.811825265710907*^9, 3.8118252712442636`*^9}, {
+   3.811825313871291*^9, 3.8118253227092304`*^9}, {3.811825376723689*^9, 
+   3.8118253882829556`*^9}, 3.811825433121258*^9, {3.8118254763908663`*^9, 
+   3.811825558072246*^9}}]
+}, Open  ]]
+},
+WindowSize->{759, 833},
+WindowMargins->{{Automatic, 43}, {Automatic, 53}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1756, 46, 183, "Input"],
+Cell[2317, 68, 7639, 183, 560, "Input"],
+Cell[CellGroupData[{
+Cell[9981, 255, 525, 12, 50, "Input"],
+Cell[10509, 269, 2342, 49, 264, "Output"]
+}, Open  ]]
+}
+]
+*)
+
