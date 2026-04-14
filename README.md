@@ -121,11 +121,21 @@ CrossSectionTools/
 ├── PacletInfo.wl              paclet metadata
 ├── Kernel/
 │   └── CrossSectionTools.wl   package source (the two functions)
+├── Documentation/
+│   └── English/
+│       ├── Guides/
+│       │   └── CrossSectionTools.nb
+│       └── ReferencePages/
+│           └── Symbols/
+│               ├── CrossSection.nb
+│               └── TorsionConstant.nb
 ├── CrossSectionTools.nb       examples notebook
 ├── build.wls                  builds the .paclet file
 ├── README.md
 └── LICENSE
 ```
+
+After installing the paclet, the reference pages are reachable via `?CrossSection`, `?TorsionConstant`, and through the Documentation Center (search "CrossSectionTools"). The `build.wls` script runs `PacletDocumentationBuild` so the documentation search index is included in the shipped `.paclet`.
 
 ## License
 

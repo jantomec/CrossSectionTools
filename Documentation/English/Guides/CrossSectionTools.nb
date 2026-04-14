@@ -1,0 +1,99 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3188,         89]
+NotebookOptionsPosition[      1955,         59]
+NotebookOutlinePosition[      2534,         79]
+CellTagsIndexPosition[      2491,         76]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["CrossSectionTools", "GuideTitle",ExpressionUUID->"fb8b48fc-a0e3-40da-ae3e-3cddb9869248"],
+
+Cell["\<\
+Tools for computing geometric and torsional properties of arbitrary 2D \
+cross-sections in Wolfram Language. Given any 2D region, compute its area, \
+centroid, moments of inertia, and Saint-Venant torsion constant.\
+\>", "GuideAbstract",ExpressionUUID->"f69dfdcd-6276-4d79-857b-1eb3ff64d0d6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Loading", "GuideFunctionsSection",ExpressionUUID->"4b106bd2-e202-4636-8121-5e09a9fecc2d"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<CrossSectionTools`\>\"", "]"}]], "Input",Expressio\
+nUUID->"a52b98a4-5267-42ea-88dc-1861f006d9b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Functions", "GuideFunctionsSection",ExpressionUUID->"2b67dc4e-4676-46f8-8bba-9f12b442b14d"],
+
+Cell[TextData[{
+ ButtonBox["CrossSection",
+  BaseStyle->"Link",
+  ButtonData->"paclet:CrossSectionTools/ref/CrossSection"],
+ " \[LongDash] full summary of geometric and torsional properties with a plot."
+}], "GuideText",ExpressionUUID->"160a7af0-8b62-46b7-9416-d4ea53b92074"],
+
+Cell[TextData[{
+ ButtonBox["TorsionConstant",
+  BaseStyle->"Link",
+  ButtonData->"paclet:CrossSectionTools/ref/TorsionConstant"],
+ " \[LongDash] Saint-Venant torsion constant of a meshed cross-section."
+}], "GuideText",ExpressionUUID->"aa3c007b-8f9b-4b0d-a6fe-2c7db1485d00"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 100}, {Automatic, 50}},
+TaggingRules-><|
+ "Metadata" -> <|"WorkflowDockedCell" -> ""|>, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""|>,
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"80d55f0f-4522-4f21-987c-b3b11c5eae9e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 94, 0, 60, "GuideTitle",ExpressionUUID->"fb8b48fc-a0e3-40da-ae3e-3cddb9869248"],
+Cell[673, 24, 302, 4, 59, "GuideAbstract",ExpressionUUID->"f69dfdcd-6276-4d79-857b-1eb3ff64d0d6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1012, 33, 95, 0, 58, "GuideFunctionsSection",ExpressionUUID->"4b106bd2-e202-4636-8121-5e09a9fecc2d"],
+Cell[1110, 35, 140, 2, 28, "Input",ExpressionUUID->"a52b98a4-5267-42ea-88dc-1861f006d9b7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1287, 42, 97, 0, 58, "GuideFunctionsSection",ExpressionUUID->"2b67dc4e-4676-46f8-8bba-9f12b442b14d"],
+Cell[1387, 44, 275, 5, 25, "GuideText",ExpressionUUID->"160a7af0-8b62-46b7-9416-d4ea53b92074"],
+Cell[1665, 51, 274, 5, 25, "GuideText",ExpressionUUID->"aa3c007b-8f9b-4b0d-a6fe-2c7db1485d00"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

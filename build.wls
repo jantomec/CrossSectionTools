@@ -14,25 +14,38 @@
 
 Needs["PacletManager`"];
 
-root   = DirectoryName[$InputFileName];
+root     = DirectoryName[$InputFileName];
 buildDir = FileNameJoin[{root, "build"}];
 
 If[!DirectoryQ[buildDir], CreateDirectory[buildDir]];
 
-(* Validate the paclet metadata. *)
+(* Validate paclet metadata. *)
 info = Get[FileNameJoin[{root, "PacletInfo.wl"}]];
 If[Head[info] =!= PacletObject,
     Print["PacletInfo.wl did not return a PacletObject"]; Exit[1]
 ];
 
-name    = info["Name"];
-version = info["Version"];
-Print["Packing ", name, " v", version, " ..."];
+Print["Packing ", info["Name"], " v", info["Version"], " ..."];
 
-(* Clean previous artefacts for the same version. *)
-Scan[DeleteFile,
-    FileNames["*.paclet", buildDir]
+(* Build the documentation search index so reference pages are discoverable
+   from the Documentation Center after install. PacletTools is distributed
+   as a paclet; fetch it if it is missing. *)
+If[FailureQ[Quiet @ Needs["PacletTools`"]],
+    Print["Installing PacletTools ..."];
+    PacletInstall["PacletTools"];
+    Needs["PacletTools`"]
 ];
+
+Print["Building documentation ..."];
+docResult = PacletDocumentationBuild[root];
+If[FailureQ[docResult],
+    Print["Warning: PacletDocumentationBuild returned a Failure. ",
+        "The paclet will still build, but documentation may not be indexed."];
+    Print[docResult]
+];
+
+(* Remove previous paclet artefacts. *)
+Scan[DeleteFile, FileNames["*.paclet", buildDir]];
 
 pacletFile = PackPaclet[root, buildDir];
 

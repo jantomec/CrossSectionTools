@@ -1,0 +1,169 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      6296,        159]
+NotebookOptionsPosition[      4272,        119]
+NotebookOutlinePosition[      4873,        139]
+CellTagsIndexPosition[      4830,        136]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["CrossSection", "ObjectName",ExpressionUUID->"7dcb5846-1f80-44c0-9e4a-59b4fcbbaa00"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "d3efb5a4-ca1d-45e6-a31e-ff2e060f4771"], Cell[BoxData[
+     RowBox[{"CrossSection", "[", 
+      StyleBox["region", "TI"], "]"}]], "Usage",ExpressionUUID->
+     "8c5569c3-fce4-4131-a9fc-e90ffa58be50"], "\n", 
+    RowBox[{
+     RowBox[{
+     "returns", " ", "a", " ", "labelled", " ", "summary", " ", "grid", " ", 
+      "of", " ", "cross"}], "-", 
+     RowBox[{"section", " ", "properties", " ", 
+      RowBox[{"(", 
+       RowBox[{"area", ",", " ", "centroid", ",", " ", 
+        RowBox[{"moments", " ", "of", " ", "inertia"}], ",", " ", 
+        RowBox[{"torsion", " ", "constant"}]}], ")"}], " ", "for", " ", "a", " ",
+       "2", "D", " "}]}], 
+    StyleBox["region", "TI"], 
+    RowBox[{" ", 
+     RowBox[{"together", " ", "with", " ", "a", " ", 
+      RowBox[{"plot", "."}]}]}]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "f63c5ba0-0953-4fdd-88d6-5274cf11ace2"], Cell[BoxData[
+     RowBox[{"CrossSection", "[", 
+      RowBox[{
+       StyleBox["region", "TI"], ",", 
+       StyleBox["units", "TI"]}], "]"}]], "Usage",ExpressionUUID->
+     "ccb6b9c5-9171-4b26-969d-690fde905a10"], "\n", 
+    RowBox[{"uses", " ", "the", " ", "string", " "}], 
+    StyleBox["units", "TI"], 
+    RowBox[{" ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"default", " ", "\"\<mm\>\""}], ")"}], " ", "as", " ", "the", " ",
+       "length", " ", "unit", " ", "in", " ", "the", " ", "results", " ", 
+      RowBox[{"table", "."}]}]}]}
+  }]], "Usage",ExpressionUUID->"3d2b06c2-bba6-4e93-a9a0-f31f56aa7851"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "NotesSection",ExpressionUUID->"d171441f-51f5-4170-8d46-de4ba1acfe09"],
+
+Cell["The argument must satisfy RegionQ and be two-dimensional.", "Notes",ExpressionUUID->"762ab016-0a7d-4b65-bbe8-4a6b0a81f0b8"],
+
+Cell["The region is discretized with DiscretizeRegion.", "Notes",ExpressionUUID->"8618f657-0654-45e3-95e1-b56213b79a52"],
+
+Cell["Integrals are computed numerically with NIntegrate.", "Notes",ExpressionUUID->"e8bc1631-4e53-4b10-8cb7-562342eb8f1b"],
+
+Cell["\<\
+The torsion constant is computed via TorsionConstant, which solves the \
+Saint-Venant torsion PDE on the mesh.\
+\>", "Notes",ExpressionUUID->"c1db5b4b-b24d-4a79-85fa-839c3d97aa37"],
+
+Cell["\<\
+Results are reported with respect to the centroidal axes y_t, z_t.\
+\>", "Notes",ExpressionUUID->"abcb226c-940e-496a-91e9-f4d264c2598f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"423cc8f5-49e8-4d0a-9c2e-8033b8e07b59"],
+
+Cell[CellGroupData[{
+
+Cell["Basic Examples", "ExampleSection",ExpressionUUID->"c33817f6-ffed-4f54-a8a7-597c9fdd2f49"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<CrossSectionTools`\>\"", "]"}]], "Input",Expressio\
+nUUID->"1233b3b4-e3df-4039-bf6b-390f770991c3"],
+
+Cell["Unit disk:", "ExampleText",ExpressionUUID->"656f2d3b-ebb3-4527-93da-52c6f0c0f902"],
+
+Cell[BoxData[
+ RowBox[{"CrossSection", "[", 
+  RowBox[{"Disk", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}]], "Input",Expres\
+sionUUID->"f0bbd022-cf22-40ab-833b-7513245ae4b5"],
+
+Cell["Rectangle using different units:", "ExampleText",ExpressionUUID->"219fef4b-29d8-4eba-85c8-fe194a51a0a9"],
+
+Cell[BoxData[
+ RowBox[{"CrossSection", "[", 
+  RowBox[{
+   RowBox[{"Rectangle", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}]}], "]"}], ",", "\"\<cm\>\""}], 
+  "]"}]], "Input",ExpressionUUID->"2d7c98fc-c55b-42e5-b47f-e1f6bcbd4442"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 100}, {Automatic, 50}},
+TaggingRules-><|
+ "NewStyles" -> False, "Metadata" -> <|"WorkflowDockedCell" -> ""|>, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""|>,
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"9e9e8cef-c135-4858-bac0-b65274ff93eb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 89, 0, 52, "ObjectName",ExpressionUUID->"7dcb5846-1f80-44c0-9e4a-59b4fcbbaa00"],
+Cell[668, 24, 1572, 35, 157, "Usage",ExpressionUUID->"3d2b06c2-bba6-4e93-a9a0-f31f56aa7851"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2277, 64, 86, 0, 27, "NotesSection",ExpressionUUID->"d171441f-51f5-4170-8d46-de4ba1acfe09"],
+Cell[2366, 66, 129, 0, 34, "Notes",ExpressionUUID->"762ab016-0a7d-4b65-bbe8-4a6b0a81f0b8"],
+Cell[2498, 68, 120, 0, 34, "Notes",ExpressionUUID->"8618f657-0654-45e3-95e1-b56213b79a52"],
+Cell[2621, 70, 123, 0, 34, "Notes",ExpressionUUID->"e8bc1631-4e53-4b10-8cb7-562342eb8f1b"],
+Cell[2747, 72, 190, 3, 34, "Notes",ExpressionUUID->"c1db5b4b-b24d-4a79-85fa-839c3d97aa37"],
+Cell[2940, 77, 146, 2, 34, "Notes",ExpressionUUID->"abcb226c-940e-496a-91e9-f4d264c2598f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3123, 84, 97, 0, 34, "PrimaryExamplesSection",ExpressionUUID->"423cc8f5-49e8-4d0a-9c2e-8033b8e07b59"],
+Cell[CellGroupData[{
+Cell[3245, 88, 95, 0, 28, "ExampleSection",ExpressionUUID->"c33817f6-ffed-4f54-a8a7-597c9fdd2f49"],
+Cell[3343, 90, 140, 2, 28, "Input",ExpressionUUID->"1233b3b4-e3df-4039-bf6b-390f770991c3"],
+Cell[3486, 94, 88, 0, 37, "ExampleText",ExpressionUUID->"656f2d3b-ebb3-4527-93da-52c6f0c0f902"],
+Cell[3577, 96, 228, 6, 28, "Input",ExpressionUUID->"f0bbd022-cf22-40ab-833b-7513245ae4b5"],
+Cell[3808, 104, 110, 0, 37, "ExampleText",ExpressionUUID->"219fef4b-29d8-4eba-85c8-fe194a51a0a9"],
+Cell[3921, 106, 323, 9, 28, "Input",ExpressionUUID->"2d7c98fc-c55b-42e5-b47f-e1f6bcbd4442"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

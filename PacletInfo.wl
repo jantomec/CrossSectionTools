@@ -15,6 +15,12 @@ PacletObject[<|
             "Kernel",
             "Root" -> "Kernel",
             "Context" -> {"CrossSectionTools`"}
+        },
+        {
+            "Documentation",
+            "Root" -> "Documentation",
+            "Language" -> "English",
+            "MainPage" -> "Guides/CrossSectionTools"
         }
     }
 |>]

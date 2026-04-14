@@ -1,0 +1,135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      4589,        125]
+NotebookOptionsPosition[      2942,         89]
+NotebookOutlinePosition[      3543,        109]
+CellTagsIndexPosition[      3500,        106]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["TorsionConstant", "ObjectName",ExpressionUUID->"1fa3d5d4-9280-4ace-ad00-b2687db59099"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "56ec3ec6-1bfd-4ad2-8ecb-349c5b901d42"], Cell[BoxData[
+     RowBox[{"TorsionConstant", "[", 
+      StyleBox["mesh", "TI"], "]"}]], "Usage",ExpressionUUID->
+     "40739e6a-ef9a-4adb-8b5d-b23d1210c880"], "\n", 
+    RowBox[{
+     RowBox[{"returns", " ", "the", " ", "Saint"}], "-", 
+     RowBox[{
+     "Venant", " ", "torsion", " ", "constant", " ", "J_t", " ", "of", " ", 
+      "a", " ", "2", "D", " ", "cross"}], "-", 
+     RowBox[{
+     "section", " ", "given", " ", "as", " ", "a", " ", "MeshRegion", " ", 
+      "or", " ", "an", " ", 
+      RowBox[{"ElementMesh", "."}]}]}]}
+  }]], "Usage",ExpressionUUID->"af0330e2-40b7-413b-894b-ce98d294b6da"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "NotesSection",ExpressionUUID->"b9e30ecd-2267-46b9-9a3a-837b046ff058"],
+
+Cell["\<\
+The torsion constant is computed by solving the Poisson problem 
+    \[CapitalDelta] \[Psi] = -2 on the cross-section, \[Psi] = 0 on the \
+boundary, 
+and returning 2 \[Integral] \[Psi] dA.\
+\>", "Notes",ExpressionUUID->"c2a71dfd-50fc-46d6-af0f-0034af3fa975"],
+
+Cell["\<\
+Accepts any MeshRegion (converted via ToElementMesh) or a prebuilt \
+ElementMesh.\
+\>", "Notes",ExpressionUUID->"f21868f9-2d16-43a8-a345-b8f1a92bc08b"],
+
+Cell["\<\
+The PDE is solved with NDSolveValue using the finite-element framework \
+(NDSolve`FEM`).\
+\>", "Notes",ExpressionUUID->"862c8ad3-aa4b-4442-87d0-afc0b1518e72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"7b5d220a-72a4-4fe0-b055-8bb5afd91356"],
+
+Cell[CellGroupData[{
+
+Cell["Basic Examples", "ExampleSection",ExpressionUUID->"32901f95-c4d8-48a9-b042-292ad1d8f3af"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<CrossSectionTools`\>\"", "]"}]], "Input",Expressio\
+nUUID->"619cdc4d-6742-4024-ae56-65de94061067"],
+
+Cell["Torsion constant of a unit disk:", "ExampleText",ExpressionUUID->"6cec09be-05fa-4555-a0c1-ada8f81bf29b"],
+
+Cell[BoxData[
+ RowBox[{"TorsionConstant", "[", 
+  RowBox[{"DiscretizeRegion", "[", 
+   RowBox[{"Disk", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}], 
+  "]"}]], "Input",ExpressionUUID->"72c4b57e-834c-47bf-b7a3-0f46c7d7053a"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 100}, {Automatic, 50}},
+TaggingRules-><|
+ "NewStyles" -> False, "Metadata" -> <|"WorkflowDockedCell" -> ""|>, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""|>,
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5af7abc5-8bfe-44a1-a3da-fb8af88f59e0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 92, 0, 52, "ObjectName",ExpressionUUID->"1fa3d5d4-9280-4ace-ad00-b2687db59099"],
+Cell[671, 24, 722, 15, 84, "Usage",ExpressionUUID->"af0330e2-40b7-413b-894b-ce98d294b6da"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1430, 44, 86, 0, 27, "NotesSection",ExpressionUUID->"b9e30ecd-2267-46b9-9a3a-837b046ff058"],
+Cell[1519, 46, 268, 5, 74, "Notes",ExpressionUUID->"c2a71dfd-50fc-46d6-af0f-0034af3fa975"],
+Cell[1790, 53, 161, 3, 34, "Notes",ExpressionUUID->"f21868f9-2d16-43a8-a345-b8f1a92bc08b"],
+Cell[1954, 58, 168, 3, 34, "Notes",ExpressionUUID->"862c8ad3-aa4b-4442-87d0-afc0b1518e72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2159, 66, 97, 0, 34, "PrimaryExamplesSection",ExpressionUUID->"7b5d220a-72a4-4fe0-b055-8bb5afd91356"],
+Cell[CellGroupData[{
+Cell[2281, 70, 95, 0, 28, "ExampleSection",ExpressionUUID->"32901f95-c4d8-48a9-b042-292ad1d8f3af"],
+Cell[2379, 72, 140, 2, 28, "Input",ExpressionUUID->"619cdc4d-6742-4024-ae56-65de94061067"],
+Cell[2522, 76, 110, 0, 37, "ExampleText",ExpressionUUID->"6cec09be-05fa-4555-a0c1-ada8f81bf29b"],
+Cell[2635, 78, 279, 7, 28, "Input",ExpressionUUID->"72c4b57e-834c-47bf-b7a3-0f46c7d7053a"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
