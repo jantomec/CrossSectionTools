@@ -1,3 +1,5 @@
 *.ini
 .DS_Store
+build/
+*.paclet
 
