@@ -59,9 +59,30 @@ Cell[TextData[{
 },
 WindowSize->{808, 911},
 WindowMargins->{{Automatic, 100}, {Automatic, 50}},
-TaggingRules-><|
- "Metadata" -> <|"WorkflowDockedCell" -> ""|>, "LinkTrails" -> "", 
-  "SearchTextTranslated" -> ""|>,
+WindowTitle->"CrossSectionTools",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "",
+  "NewStyles" -> True,
+  "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> False,
+  "RootCaptions" -> "", "HeaderCoreAreaLink" -> {},
+  "Metadata" -> {
+    "context" -> "CrossSectionTools`",
+    "keywords" -> {}, "specialkeywords" -> {},
+    "tutorialcollectionlinks" -> {},
+    "index" -> True,
+    "label" -> "JanTomec/ Cross Section Tools Guide",
+    "language" -> "en",
+    "paclet" -> "JanTomec/CrossSectionTools",
+    "status" -> "None",
+    "summary" -> "Tools for computing geometric and torsional properties of arbitrary 2D cross-sections in Wolfram Language.",
+    "synonyms" -> {}, "tabletags" -> {},
+    "title" -> "CrossSectionTools",
+    "titlemodifier" -> "", "metadescription" -> "",
+    "windowtitle" -> "CrossSectionTools",
+    "type" -> "Guide",
+    "uri" -> "JanTomec/CrossSectionTools/guide/CrossSectionTools"
+  }
+},
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
   CharacterEncoding -> "UTF-8"],

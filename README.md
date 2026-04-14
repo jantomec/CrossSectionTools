@@ -50,7 +50,7 @@ Needs["CrossSectionTools`"]
 CrossSection[\[CapitalOmega]]
 ```
 
-See `CrossSectionTools.nb` for runnable examples.
+See `Examples/BasicUsage.nb` for runnable examples.
 
 The public functions are:
 
@@ -129,7 +129,8 @@ CrossSectionTools/
 │           └── Symbols/
 │               ├── CrossSection.nb
 │               └── TorsionConstant.nb
-├── CrossSectionTools.nb       examples notebook
+├── Examples/
+│   └── BasicUsage.nb          runnable examples notebook
 ├── build.wls                  builds the .paclet file
 ├── README.md
 └── LICENSE

@@ -37,7 +37,14 @@ If[FailureQ[Quiet @ Needs["PacletTools`"]],
 ];
 
 Print["Building documentation ..."];
-docResult = PacletDocumentationBuild[root];
+docResult = Quiet[
+    PacletDocumentationBuild[root],
+    {
+        DocumentationBuild`Info`GetNotebookCategorization::val,
+        DocumentationBuild`Info`GetNotebookTitle::notitle,
+        DocumentationBuild`DocumentationBuild::warning
+    }
+];
 If[FailureQ[docResult],
     Print["Warning: PacletDocumentationBuild returned a Failure. ",
         "The paclet will still build, but documentation may not be indexed."];

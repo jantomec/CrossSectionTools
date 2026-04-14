@@ -1,26 +1,37 @@
-(* ::Package:: *)
-
-PacletObject[<|
-    "Name" -> "JanTomec/CrossSectionTools",
-    "Version" -> "1.0.0",
-    "WolframVersion" -> "11.0+",
-    "Description" -> "Compute cross section properties (area, centroid, moments of inertia, torsion constant) for an arbitrary 2D shape.",
-    "Creator" -> "Jan Tomec",
-    "License" -> "MIT",
-    "URL" -> "https://github.com/jantomec/CrossSectionTools",
-    "Category" -> "Engineering",
-    "Keywords" -> {"cross section", "moment of inertia", "torsion", "structural", "FEM"},
-    "Extensions" -> {
+PacletObject[ <|
+    "Name"             -> "JanTomec/CrossSectionTools",
+    "Description"      -> "Compute cross section properties (area, centroid, moments of inertia, torsion constant) for an arbitrary 2D shape.",
+    "Creator"          -> "Jan Tomec",
+    "URL"              -> "https://github.com/jantomec/CrossSectionTools",
+    "SourceControlURL" -> "https://github.com/jantomec/CrossSectionTools",
+    "License"          -> "MIT",
+    "PublisherID"      -> "JanTomec",
+    "Version"          -> "1.0.0",
+    "WolframVersion"   -> "11.0+",
+    "Category"         -> "Engineering",
+    "Keywords"         -> { "cross section", "moment of inertia", "torsion", "structural", "FEM" },
+    "Extensions"       -> {
         {
             "Kernel",
-            "Root" -> "Kernel",
-            "Context" -> {"CrossSectionTools`"}
+            "Root"    -> "Kernel",
+            "Context" -> { "CrossSectionTools`" },
+            "Symbols" -> {
+                "CrossSectionTools`CrossSection",
+                "CrossSectionTools`TorsionConstant"
+            }
         },
         {
             "Documentation",
-            "Root" -> "Documentation",
-            "Language" -> "English",
-            "MainPage" -> "Guides/CrossSectionTools"
+            "Root"     -> "Documentation",
+            "Language" -> "English"
+        },
+        {
+            "Asset",
+            "Assets" -> {
+                { "License",  "./LICENSE"   },
+                { "ReadMe",   "./README.md" },
+                { "Examples", "./Examples"  }
+            }
         }
     }
-|>]
+|> ]

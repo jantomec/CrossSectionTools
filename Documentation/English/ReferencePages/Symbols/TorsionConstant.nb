@@ -77,21 +77,77 @@ nUUID->"619cdc4d-6742-4024-ae56-65de94061067"],
 Cell["Torsion constant of a unit disk:", "ExampleText",ExpressionUUID->"6cec09be-05fa-4555-a0c1-ada8f81bf29b"],
 
 Cell[BoxData[
- RowBox[{"TorsionConstant", "[", 
-  RowBox[{"DiscretizeRegion", "[", 
-   RowBox[{"Disk", "[", 
+ RowBox[{"TorsionConstant", "[",
+  RowBox[{"DiscretizeRegion", "[",
+   RowBox[{"Disk", "[",
     RowBox[{
-     RowBox[{"{", 
-      RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}], 
-  "]"}]], "Input",ExpressionUUID->"72c4b57e-834c-47bf-b7a3-0f46c7d7053a"]
+     RowBox[{"{",
+      RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}],
+  "]"}]], "Input",ExpressionUUID->"72c4b57e-834c-47bf-b7a3-0f46c7d7053a"],
+
+Cell["\t", "ExampleDelimiter",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100001"],
+
+Cell["Torsion constant of a thin rectangle:", "ExampleText",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100002"],
+
+Cell[BoxData[
+ RowBox[{"TorsionConstant", "[",
+  RowBox[{"DiscretizeRegion", "[",
+   RowBox[{"Rectangle", "[",
+    RowBox[{
+     RowBox[{"{",
+      RowBox[{"0", ",", "0"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"4", ",", "1"}], "}"}]}], "]"}], "]"}],
+  "]"}]], "Input",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100003"],
+
+Cell["\t", "ExampleDelimiter",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100004"],
+
+Cell["Pass an ElementMesh built directly with ToElementMesh:", "ExampleText",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100005"],
+
+Cell[BoxData[
+ RowBox[{"TorsionConstant", "[",
+  RowBox[{"NDSolve`FEM`ToElementMesh", "[",
+   RowBox[{"Disk", "[",
+    RowBox[{
+     RowBox[{"{",
+      RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}],
+  "]"}]], "Input",ExpressionUUID->"7c4b57e0-1a11-4a13-9d1d-3f1a1c100006"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 911},
 WindowMargins->{{Automatic, 100}, {Automatic, 50}},
-TaggingRules-><|
- "NewStyles" -> False, "Metadata" -> <|"WorkflowDockedCell" -> ""|>, 
-  "LinkTrails" -> "", "SearchTextTranslated" -> ""|>,
+WindowTitle->"TorsionConstant",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "",
+  "ExampleCounter" -> 1,
+  "Openers" -> {
+    "PrimaryExamplesSection" -> Open,
+    "ExampleSection" -> {"0" -> Open}, "AllOptsTable" -> Closed,
+    "NotesSection" -> Open
+  },
+  "NewStyles" -> True,
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False,
+  "HasOptions" -> True,
+  "RootCaptions" -> "", "HeaderCoreAreaLink" -> {},
+  "Metadata" -> {
+    "context" -> "CrossSectionTools`",
+    "keywords" -> {}, "specialkeywords" -> {},
+    "tutorialcollectionlinks" -> {},
+    "index" -> True,
+    "label" -> "JanTomec/ Cross Section Tools Symbol",
+    "language" -> "en",
+    "paclet" -> "JanTomec/CrossSectionTools",
+    "status" -> "None",
+    "summary" -> "TorsionConstant[mesh] returns the Saint-Venant torsion constant of a 2D cross-section.",
+    "synonyms" -> {}, "tabletags" -> {},
+    "title" -> "TorsionConstant",
+    "titlemodifier" -> "", "metadescription" -> "",
+    "windowtitle" -> "TorsionConstant",
+    "type" -> "Symbol",
+    "uri" -> "JanTomec/CrossSectionTools/ref/TorsionConstant"
+  }
+},
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
   CharacterEncoding -> "UTF-8"],

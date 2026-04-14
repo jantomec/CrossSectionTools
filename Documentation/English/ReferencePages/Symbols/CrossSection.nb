@@ -102,26 +102,76 @@ Cell[BoxData[
      RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], "]"}]], "Input",Expres\
 sionUUID->"f0bbd022-cf22-40ab-833b-7513245ae4b5"],
 
+Cell["\t", "ExampleDelimiter",ExpressionUUID->"6f0a4f0e-1a11-4a13-9d1d-3f1a1c000001"],
+
 Cell["Rectangle using different units:", "ExampleText",ExpressionUUID->"219fef4b-29d8-4eba-85c8-fe194a51a0a9"],
 
 Cell[BoxData[
- RowBox[{"CrossSection", "[", 
+ RowBox[{"CrossSection", "[",
   RowBox[{
-   RowBox[{"Rectangle", "[", 
+   RowBox[{"Rectangle", "[",
     RowBox[{
-     RowBox[{"{", 
-      RowBox[{"0", ",", "0"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"2", ",", "1"}], "}"}]}], "]"}], ",", "\"\<cm\>\""}], 
-  "]"}]], "Input",ExpressionUUID->"2d7c98fc-c55b-42e5-b47f-e1f6bcbd4442"]
+     RowBox[{"{",
+      RowBox[{"0", ",", "0"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"2", ",", "1"}], "}"}]}], "]"}], ",", "\"\<cm\>\""}],
+  "]"}]], "Input",ExpressionUUID->"2d7c98fc-c55b-42e5-b47f-e1f6bcbd4442"],
+
+Cell["\t", "ExampleDelimiter",ExpressionUUID->"6f0a4f0e-1a11-4a13-9d1d-3f1a1c000002"],
+
+Cell["Compound shape via RegionUnion:", "ExampleText",ExpressionUUID->"6f0a4f0e-1a11-4a13-9d1d-3f1a1c000003"],
+
+Cell[BoxData[
+ RowBox[{"CrossSection", "[",
+  RowBox[{"RegionUnion", "[",
+   RowBox[{
+    RowBox[{"Disk", "[",
+     RowBox[{
+      RowBox[{"{",
+       RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], ",",
+    RowBox[{"Rectangle", "[",
+     RowBox[{
+      RowBox[{"{",
+       RowBox[{"0", ",", "0"}], "}"}], ",",
+      RowBox[{"{",
+       RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], "]"}],
+  "]"}]], "Input",ExpressionUUID->"6f0a4f0e-1a11-4a13-9d1d-3f1a1c000004"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 911},
 WindowMargins->{{Automatic, 100}, {Automatic, 50}},
-TaggingRules-><|
- "NewStyles" -> False, "Metadata" -> <|"WorkflowDockedCell" -> ""|>, 
-  "LinkTrails" -> "", "SearchTextTranslated" -> ""|>,
+WindowTitle->"CrossSection",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "",
+  "ExampleCounter" -> 1,
+  "Openers" -> {
+    "PrimaryExamplesSection" -> Open,
+    "ExampleSection" -> {"0" -> Open}, "AllOptsTable" -> Closed,
+    "NotesSection" -> Open
+  },
+  "NewStyles" -> True,
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False,
+  "HasOptions" -> True,
+  "RootCaptions" -> "", "HeaderCoreAreaLink" -> {},
+  "Metadata" -> {
+    "context" -> "CrossSectionTools`",
+    "keywords" -> {}, "specialkeywords" -> {},
+    "tutorialcollectionlinks" -> {},
+    "index" -> True,
+    "label" -> "JanTomec/ Cross Section Tools Symbol",
+    "language" -> "en",
+    "paclet" -> "JanTomec/CrossSectionTools",
+    "status" -> "None",
+    "summary" -> "CrossSection[region] returns area, centroid, moments of inertia and torsion constant of a 2D region together with a plot.",
+    "synonyms" -> {}, "tabletags" -> {},
+    "title" -> "CrossSection",
+    "titlemodifier" -> "", "metadescription" -> "",
+    "windowtitle" -> "CrossSection",
+    "type" -> "Symbol",
+    "uri" -> "JanTomec/CrossSectionTools/ref/CrossSection"
+  }
+},
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
   CharacterEncoding -> "UTF-8"],
